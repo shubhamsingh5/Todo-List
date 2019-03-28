@@ -1,9 +1,12 @@
 var mongoose = require('mongoose');
 mongoose.set('debug', true);
 
-const db = require('../config/keys').mongoURI;
-mongoose.connect(db);
+const mongodb = require('../config/keys').mongoURI;
+//connect something to a database that doesn't exist
+//database will be created automatically
+mongoose
+    .connect(mongodb, { useNewUrlParser: true})
+    .then(() => console.log('MongoDB connected....'))
+    .catch(err => console.log(err));
 
-mongoose.Promise = Promise;
-
-module.exports.Todo = require("./todo");
+module.exports.Todo = require('./todo');
