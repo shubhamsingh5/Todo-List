@@ -1,7 +1,8 @@
 var express = require('express'),
     app = express(),
     port = process.env.PORT || 3000,
-    bodyParser = require('body-parser');
+    bodyParser = require('body-parser'),
+    path = require('path');
     
 var todoRoutes = require("./routes/todos");
 
@@ -15,6 +16,16 @@ app.get('/', function(req, res){
 });
 
 app.use('/api/todos', todoRoutes);
+
+// Serve static assets if in production
+if (process.env.NODE_ENV === 'production') {
+    // Set static folder
+    app.use(express.static('../todosfrontend/build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, '..', 'todosfrontend', 'build', 'index.html'));
+    });
+}
 
 app.listen(port, function(){
     console.log("APP IS RUNNING ON PORT " + process.env.PORT);
