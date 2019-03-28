@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 mongoose.set('debug', true);
-mongoose.connect('mongodb://localhost/todo-api');
+
+const db = require('../config/keys').mongoURI;
+mongoose.connect(db);
 
 mongoose.Promise = Promise;
 

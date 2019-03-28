@@ -1,15 +1,16 @@
 var express = require('express'),
     app = express(),
-    port = process.env.PORT || 3000,
+    port = process.env.PORT || 5000,
     bodyParser = require('body-parser'),
     path = require('path');
-    
+
 var todoRoutes = require("./routes/todos");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname +'/public'));
 app.use(express.static(__dirname + '/views'));
+
 
 // app.get('/', function(req, res){
 //     res.sendFile("index.html");
@@ -28,7 +29,5 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.listen(port, function(){
-    console.log("APP IS RUNNING ON PORT " + process.env.PORT);
-})
-    
-    
+    console.log("APP IS RUNNING ON PORT " + port);
+});
