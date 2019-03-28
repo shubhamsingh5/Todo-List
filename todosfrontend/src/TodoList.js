@@ -96,8 +96,14 @@ class TodoList extends Component {
                     </div>
                     <div className="compOrArch">
                         <div className="category">
-                            <button onClick={this.showCompleted}>COMPLETED</button>
-                            <button onClick={this.showArchived}>ARCHIVED</button>
+                            <button 
+                                onClick={this.showCompleted}
+                                className={!(this.state.showArchived) ? "selected" : ""}
+                            >COMPLETED</button>
+                            <button 
+                                onClick={this.showArchived}
+                                className={(this.state.showArchived) ? "selected" : ""}
+                            >ARCHIVED</button>
                         </div>
                         {compOrArch}
                     </div>

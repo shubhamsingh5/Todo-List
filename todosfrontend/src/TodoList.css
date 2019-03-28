@@ -15,18 +15,18 @@
 }
 
 h1 {
-	font-size: 77px;
+	font-size: 65px;
 	margin-top: 50px;
 	margin-bottom: 68px;
 }
 
 h3 {
-	font-size: 40px;
+	font-size: 30px;
 	margin-bottom: 10px;
 }
 
 .pending {
-	margin-left: 7.8%;
+	margin-left: 10%;
 	text-align: left;
 }
 
@@ -45,27 +45,29 @@ h3 {
 
 button {
 	align-self: flex-end;
-	margin: 10px;
+	margin-right: 20px;
+	margin-bottom: 20px;
 	outline:none;
-	height: 50px;
+	height: 45px;
 	text-align: center;
-	width: 240px;
+	width: 200px;
 	border-radius:40px;
 	background: transparent;
 	border: 2px solid #F1F2EE;
 	color:#F1F2EE;
 	letter-spacing:1px;
 	text-shadow:0;
-	font-size: 30px;
+	font-size: 20px;
 	transition: all 0.25s ease;
 }
 
-button .selected {
+.selected {
 	color: #C6426E;
 	background: #F1F2EE;
 }
 
 button:hover{
+	cursor: pointer;
 	color: #C6426E;
 	background: #F1F2EE;
 }
