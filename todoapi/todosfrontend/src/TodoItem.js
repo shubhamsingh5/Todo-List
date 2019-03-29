@@ -2,8 +2,8 @@ import React from 'react';
 import './TodoItem.css';
 
 
-const TodoItem = ({name, completed, archived, onDelete, onToggle}) => (
-    <li className={(completed || archived) ? 'todo-completed' : 'todo-pending'}>
+const TodoItem = ({name, completed, archived, onDelete, onArchive, onToggle}) => (
+    <li className={(completed) ? 'todo-completed' : (archived) ? 'todo-archived' : 'todo-pending'}>
         <div className='circle'
             style={{
                 display: 'inline-block',
@@ -20,7 +20,8 @@ const TodoItem = ({name, completed, archived, onDelete, onToggle}) => (
         >
             {name}
         </span>
-        <span onClick={onDelete}><i class="fas fa-trash-alt delete-button"></i></span>
+        <span onClick={onDelete}><i className="fas fa-trash-alt delete-button"></i></span>
+        <span onClick={onArchive}><i className="fas fa-archive archive-button"></i></span>
     </li>
 );
 

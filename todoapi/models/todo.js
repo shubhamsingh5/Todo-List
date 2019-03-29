@@ -14,6 +14,10 @@ var todoSchema = new mongoose.Schema({
         type: Boolean,
         default: false
     },
+    archived: {
+        type: Boolean,
+        default: false
+    },
     created_date: {
         type: Date,
         default: Date.now

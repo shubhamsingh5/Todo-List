@@ -49,6 +49,17 @@ class TodoList extends Component {
         this.setState({todos});
     }
 
+    async archiveTodo(todo) {
+        let updatedTodo = await apiCalls.archiveTodo(todo);
+        const todos = this.state.todos.map(t =>
+            (t._id === updatedTodo._id) ? {
+                ...t,
+                archived: !t.archived
+            } : t
+        );
+        this.setState({todos: todos});
+    }
+
     showCompleted() {
         this.setState({showArchived: false})
     }
@@ -59,36 +70,39 @@ class TodoList extends Component {
     render() {
         let compOrArch;
         if (this.state.showArchived) {
-            compOrArch = this.state.todos.filter((t) => t.archived).map((t) => (
+            compOrArch = this.state.todos.filter((t) => t.archived).map((u) => (
                 <TodoItem
-                    key={t._id}
-                    {...t}
-                    onDelete={this.deleteTodo.bind(this, t._id)}
-                    onToggle={this.toggleTodo.bind(this, t)}
+                    key={u._id}
+                    {...u}
+                    onDelete={this.deleteTodo.bind(this, u._id)}
+                    onToggle={this.toggleTodo.bind(this, u)}
+                    onArchive={this.archiveTodo.bind(this, u)}
                 />
             ));
         } else {
-            compOrArch = this.state.todos.filter((t) => t.completed).map((t) => (
+            compOrArch = this.state.todos.filter((t) => (t.completed && !t.archived)).map((u) => (
                 <TodoItem
-                    key={t._id}
-                    {...t}
-                    onDelete={this.deleteTodo.bind(this, t._id)}
-                    onToggle={this.toggleTodo.bind(this, t)}
+                    key={u._id}
+                    {...u}
+                    onDelete={this.deleteTodo.bind(this, u._id)}
+                    onToggle={this.toggleTodo.bind(this, u)}
+                    onArchive={this.archiveTodo.bind(this, u)}
                 />
             ));
         }
-        const pendingTodos = this.state.todos.filter((t) => !t.completed).map((u) => (
+        const pendingTodos = this.state.todos.filter((t) => (!t.completed && !t.archived)).map((u) => (
             <TodoItem
               key={u._id}
               {...u}
               onDelete={this.deleteTodo.bind(this,u._id)}
               onToggle={this.toggleTodo.bind(this,u)}
+              onArchive={this.archiveTodo.bind(this, u)}
             />
             ));
 
         return (
             <div className="container">
-                <h1>TodoList</h1>
+                <h1>Todo List</h1>
                 <div className="topLevel">
                     <div className="pending">
                         <h3>Pending</h3>

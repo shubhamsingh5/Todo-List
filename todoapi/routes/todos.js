@@ -33,6 +33,7 @@ router.route('/')
 router.route('/:todoId')
     .get(helpers.getTodo)
     .put(helpers.updateTodo)
+    .put(helpers.archiveTodo)
     .delete(helpers.deleteTodo);
 
 module.exports = router;
