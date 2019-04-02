@@ -71,3 +71,54 @@ button:hover{
 	color: #C6426E;
 	background: #F1F2EE;
 }
+
+@media screen and (max-width: 768px) {
+    h1 {
+		font-size: 40px;
+		margin-top: 50px;
+		margin-bottom: 68px;
+	}
+	
+	h3 {
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+
+	button {
+		height: 30px;
+		width: 125px;
+		font-size: 14px;
+	}
+  }
+
+  @media screen and (max-width: 500px) {
+	.topLevel {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	.compOrArch {
+		margin-top: 10%;
+		margin-left: 10%;
+		text-align: left;
+	}
+
+	h1 {
+		font-size: 30px;
+		margin-top: 25px;
+		margin-bottom: 68px;
+	}
+	
+	h3 {
+		font-size: 20px;
+		margin-bottom: 10px;
+	}
+
+	button {
+		height: 30px;
+		width: 125px;
+		font-size: 14px;
+	}
+}
+	

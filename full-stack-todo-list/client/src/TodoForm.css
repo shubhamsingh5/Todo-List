@@ -1,7 +1,7 @@
 .todoForm {
-    position: fixed;
-    bottom: 60px;
+    float: left;
     margin-left: 10%;
+    margin-top: 250px;
 }
 
 ::placeholder {
@@ -14,9 +14,32 @@ input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
 input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 
 input[type=text] {
-    width: 100%;
     color: #F1F2EE;
     padding: 5px;
     font-size: 65px;
     border-bottom: 4px solid #C6426E;
 }
+
+@media screen and (max-width: 768px) {
+    .todoForm {
+        font-size: 30px;
+        margin-top: 100px;
+        margin-bottom: 40px;
+    }
+
+    input[type=text] {
+        font-size: 30px;
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .todoForm {
+        font-size: 30px;
+        margin-top: 100px;
+        margin-bottom: 20px;
+    }
+
+    input[type=text] {
+        font-size: 24px;
+    }
+  }
